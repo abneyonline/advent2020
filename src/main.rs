@@ -146,8 +146,8 @@ fn main() -> std::io::Result<()> {
         if entries.contains_key("pid")
         {
             let value = entries.get("pid").unwrap();
-            let re = Regex::new("\\d{9}").unwrap();
-            if !re.is_match(value) || value.len() != 9
+            let re = Regex::new("^\\d{9}$").unwrap();
+            if !re.is_match(value)
             {
                 continue;
             }
